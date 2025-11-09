@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A158C758-F64D-4B5A-A767-44DD10514552}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>BMS_WPF1</RootNamespace>
+    <AssemblyName>BMS_WPF1</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>BMS_WPF1.App</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Services\AutomationServices\AutomationService.cs" />
+    <Compile Include="Services\AutomationServices\ScriptTemplateManager.cs" />
+    <Compile Include="Services\BmsServices\BmsDataProcessor.cs" />
+    <Compile Include="Services\BmsServices\BmsSignalDecoder.cs" />
+    <Compile Include="Services\CanServices\CanService.cs" />
+    <Compile Include="Services\CanServices\CanServiceFactory.cs" />
+    <Compile Include="Services\CanServices\MockCanService.cs" />
+    <Compile Include="Services\CanServices\ZLGSdkWrapper.cs" />
+    <Compile Include="Services\CanServices\ZLGUsbCanService.cs" />
+    <Compile Include="Services\DiagnoseServices\ObdService.cs" />
+    <Compile Include="Services\FirmwareServices\ZckFirmwareService.cs" />
+    <Compile Include="Services\LicenseServices\LicenseService.cs" />
+    <Compile Include="Services\LogServices\LogService.cs" />
+    <Compile Include="Utils\AesEncryption.cs" />
+    <Compile Include="Utils\BmsSignalEncoder.cs" />
+    <Compile Include="Utils\DbcParser.cs" />
+    <Compile Include="Utils\FileHandler.cs" />
+    <Compile Include="Utils\LogHelper.cs" />
+    <Compile Include="Utils\ZLGSdkWrapper.cs" />
+    <Compile Include="ViewModels\AutomationViewModel.cs" />
+    <Compile Include="ViewModels\BMSMonitoringViewModel.cs" />
+    <Compile Include="ViewModels\CanMonitorViewModel.cs" />
+    <Compile Include="ViewModels\DiagnoseViewModel.cs" />
+    <Compile Include="ViewModels\FirmwareUpdateViewModel.cs" />
+    <Compile Include="ViewModels\HomeViewModel.cs" />
+    <Compile Include="ViewModels\MessageSendViewModel.cs" />
+    <Compile Include="ViewModels\ObdMonitorViewModel.cs" />
+    <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ThemeSettingsViewModel.cs" />
+    <Compile Include="Views\AutomationView.xaml.cs">
+      <DependentUpon>AutomationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BMSMonitoringView.xaml.cs">
+      <DependentUpon>BMSMonitoringView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CanMonitorView.xaml.cs">
+      <DependentUpon>CanMonitorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DiagnoseView.xaml.cs">
+      <DependentUpon>DiagnoseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FirmwareUpdateView.xaml.cs">
+      <DependentUpon>FirmwareUpdateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\HomeView.xaml.cs">
+      <DependentUpon>HomeView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageSendView.xaml.cs">
+      <DependentUpon>MessageSendView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ObdMonitorView.xaml.cs">
+      <DependentUpon>ObdMonitorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shell.xaml.cs">
+      <DependentUpon>Shell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThemeSettingsView.xaml.cs">
+      <DependentUpon>ThemeSettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Converters\BoolToColorConverter.cs" />
+    <Compile Include="Converters\BoolToSecurityStatusConverter.cs" />
+    <Compile Include="Converters\BoolToStringConverter.cs" />
+    <Compile Include="Converters\InverseObjectToVisibilityConverter.cs" />
+    <Compile Include="Converters\ObjectToVisibilityConverter.cs" />
+    <Compile Include="Converters\StringToBackgroundConverter.cs" />
+    <Compile Include="Converters\StringToForegroundConverter.cs" />
+    <Compile Include="Converters\StringToUshortConverter.cs" />
+    <Compile Include="Converters\StringToVisibilityConverter.cs" />
+    <Compile Include="Interfaces\ICanService.cs" />
+    <Compile Include="Interfaces\IDbcService.cs" />
+    <Compile Include="Interfaces\ILicenseService.cs" />
+    <Compile Include="Interfaces\ILogService.cs" />
+    <Compile Include="Interfaces\IObdService.cs" />
+    <Page Include="Themes\DarkBlueTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\LightTheme.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\AutomationView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\BMSMonitoringView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\CanMonitorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DiagnoseView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FirmwareUpdateView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\HomeView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MessageSendView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ObdMonitorView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Shell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ThemeSettingsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\BmsModels\BatteryData.cs" />
+    <Compile Include="Models\BmsModels\BmsStatusData.cs" />
+    <Compile Include="Models\BmsModels\CellVoltageData.cs" />
+    <Compile Include="Models\BmsModels\TemperatureData.cs" />
+    <Compile Include="Models\CanModels\CanChannel.cs" />
+    <Compile Include="Models\CanModels\CanChannelStatus.cs" />
+    <Compile Include="Models\CanModels\CanDeviceInfo.cs" />
+    <Compile Include="Models\CanModels\CanErrorInfo.cs" />
+    <Compile Include="Models\CanModels\CanFdMessage.cs" />
+    <Compile Include="Models\CanModels\CanInitConfig.cs" />
+    <Compile Include="Models\CanModels\CanMessage.cs" />
+    <Compile Include="Models\CanModels\CanSignal.cs" />
+    <Compile Include="Models\CanModels\CanStatistics.cs" />
+    <Compile Include="Models\CommonModels\AutomationScript.cs" />
+    <Compile Include="Models\CommonModels\LogEntry.cs" />
+    <Compile Include="Models\CommonModels\ScriptVariable.cs" />
+    <Compile Include="Models\CommonModels\TestReport.cs" />
+    <Compile Include="Models\CommonModels\TestStep.cs" />
+    <Compile Include="Models\CommonModels\TestTask.cs" />
+    <Compile Include="Models\CommonModels\TestTemplate.cs" />
+    <Compile Include="Models\CommonModels\Theme.cs" />
+    <Compile Include="Models\CommonModels\User.cs" />
+    <Compile Include="Models\DiagnoseModels\BatteryInfo.cs" />
+    <Compile Include="Models\DiagnoseModels\DiagnoseEventArgs.cs" />
+    <Compile Include="Models\DiagnoseModels\DtcInfo.cs" />
+    <Compile Include="Models\DiagnoseModels\FaultStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="DesignDoc\CANBusMonitor_DesignDoc.md" />
+    <None Include="DesignDoc\DesignOptimization_Summary.md" />
+    <None Include="DesignDoc\Interfaces_Dsign\Service_Data_Interfaces.md" />
+    <None Include="DesignDoc\Interfaces_Dsign\Service_Internal_Interfaces.md" />
+    <None Include="DesignDoc\Interfaces_Dsign\View_Service_Interfaces.md" />
+    <None Include="DesignDoc\Models_Dsign\AutomationModels_Design.md" />
+    <None Include="DesignDoc\Models_Dsign\CanModels_Design.md" />
+    <None Include="DesignDoc\Models_Dsign\DbcModels_Design.md" />
+    <None Include="DesignDoc\Models_Dsign\ObdModels_Design.md" />
+    <None Include="DesignDoc\Services_Design\AutomationService_Design.md" />
+    <None Include="DesignDoc\Services_Design\CanService_Design.md" />
+    <None Include="DesignDoc\Services_Design\DbcService_Design.md" />
+    <None Include="DesignDoc\Services_Design\LicenseService_Design.md" />
+    <None Include="DesignDoc\Services_Design\LoggingService_Design.md" />
+    <None Include="DesignDoc\Services_Design\ObdService_Design.md" />
+    <None Include="DesignDoc\UI_Design\AutomationTesting_UI_Design.md" />
+    <None Include="DesignDoc\UI_Design\DbcManagement_UI_Design.md" />
+    <None Include="DesignDoc\UI_Design\DeviceConnection_UI_Design.md" />
+    <None Include="DesignDoc\UI_Design\MessageMonitoring_UI_Design.md" />
+    <None Include="DesignDoc\UI_Design\MessageSend_UI_Design.md" />
+    <None Include="DesignDoc\UI_Design\ObdDiagnostics_UI_Design.md" />
+    <None Include="DesignDoc\UI_Design\SystemSettings_UI_Design.md" />
+    <None Include="packages\commonservicelocator.1.3.0.nupkg" />
+    <None Include="packages\Newtonsoft.Json.12.0.3\.signature.p7s" />
+    <None Include="packages\Newtonsoft.Json.12.0.3\LICENSE.md" />
+    <None Include="packages\Newtonsoft.Json.12.0.3\Newtonsoft.Json.12.0.3.nupkg" />
+    <None Include="packages\Prism.Core.6.3.0\Prism.Core.6.3.0.nupkg" />
+    <None Include="packages\Prism.Wpf.6.3.0\Prism.Wpf.6.3.0.nupkg" />
+    <None Include="packages\Unity.4.0.1\.signature.p7s" />
+    <None Include="packages\Unity.4.0.1\lib\win8\Microsoft.Practices.Unity.RegistrationByConvention.pri" />
+    <None Include="packages\Unity.4.0.1\Unity.4.0.1.nupkg" />
+    <None Include="packages\Unity.4.0.1\UnityConfiguration30.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="References\zlgcan_x64\kerneldlls\devices_property\candtu.ini" />
+    <None Include="References\zlgcan_x64\kerneldlls\dll_cfg.ini" />
+    <None Include="References\zlgcan_x86\kerneldlls\devices_property\candtu.ini" />
+    <None Include="References\zlgcan_x86\kerneldlls\dll_cfg.ini" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\net20\Newtonsoft.Json.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANDevCore.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANDevice.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANDTU_NET.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANDTU_NET_400.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANETE.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANET_TCP.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANFDCOM.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANFDNET.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANWIFI_TCP.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\CANWIFI_UDP.dll" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\can.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\candtu-100ur.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\candtu-200ur.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\candtu-net-400.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\candtu-net.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canet-tcp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canet-udp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdblue-200u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdcom-100ie.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdnet-tcp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdnet-udp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdnet100-tcp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdnet100-udp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdnet400u-tcp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdnet400u-udp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdwifi-tcp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canfdwifi-udp.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\canscope.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\device_locale_strings.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\pci-5010-u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\pci-5020-u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\pcie-canfd-100u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\pcie-canfd-200u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\pcie-canfd-400u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcan-4e-u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcan-8e-u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcan1.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcan2.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcan4.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcanfd-100u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\usbcanfd-200u.xml" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\devices_property\virtual.xml" />
+    <Content Include="References\zlgcan_x64\kerneldlls\USBCAN.dll" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\USBCAN.xml" />
+    <Content Include="References\zlgcan_x64\kerneldlls\USBCANFD.dll" />
+    <Resource Include="References\zlgcan_x64\kerneldlls\VCI_USBCAN2.xml" />
+    <Content Include="References\zlgcan_x64\kerneldlls\VirtualUSBCAN.dll" />
+    <Content Include="References\zlgcan_x64\kerneldlls\ZlgCloud.dll" />
+    <Content Include="References\zlgcan_x64\zlgcan.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANDevCore.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANDevice.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANDTU_NET.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANDTU_NET_400.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANETE.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANET_TCP.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANFDCOM.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANFDNET.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANWIFI_TCP.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\CANWIFI_UDP.dll" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\can.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\candtu-100ur.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\candtu-200ur.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\candtu-net-400.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\candtu-net.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canet-tcp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canet-udp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdblue-200u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdcom-100ie.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdnet-tcp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdnet-udp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdnet100-tcp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdnet100-udp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdnet400u-tcp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdnet400u-udp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdwifi-tcp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canfdwifi-udp.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\canscope.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\device_locale_strings.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\pci-5010-u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\pci-5020-u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\pcie-canfd-100u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\pcie-canfd-200u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\pcie-canfd-400u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcan-4e-u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcan-8e-u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcan1.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcan2.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcan4.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcanfd-100u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\usbcanfd-200u.xml" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\devices_property\virtual.xml" />
+    <Content Include="References\zlgcan_x86\kerneldlls\usbcan.dll" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\USBCAN.xml" />
+    <Content Include="References\zlgcan_x86\kerneldlls\USBCANFD.dll" />
+    <Resource Include="References\zlgcan_x86\kerneldlls\VCI_USBCAN2.xml" />
+    <Content Include="References\zlgcan_x86\kerneldlls\VirtualUSBCAN.dll" />
+    <Content Include="References\zlgcan_x86\kerneldlls\ZlgCloud.dll" />
+    <Content Include="References\zlgcan_x86\zlgcan.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\net20\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\net35\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\net35\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\net40\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\netstandard1.0\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\netstandard1.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\netstandard1.3\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\netstandard1.3\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\netstandard2.0\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net40+sl5+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Content Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.xml" />
+    <Resource Include="packages\Newtonsoft.Json.12.0.3\packageIcon.png" />
+    <Content Include="packages\Prism.Core.6.3.0\lib\portable-net45+win8+wpa81\Prism.Core.dll" />
+    <Content Include="packages\Prism.Wpf.6.3.0\lib\net45\Prism.Wpf.dll" />
+    <Content Include="packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll" />
+    <Resource Include="packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.XML" />
+    <Content Include="packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll" />
+    <Content Include="packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll" />
+    <Resource Include="packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.XML" />
+    <Resource Include="packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.xml" />
+    <Content Include="packages\Unity.4.0.1\lib\net45\Unity.dll" />
+    <Content Include="packages\Unity.4.0.1\lib\portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10\Microsoft.Practices.Unity.dll" />
+    <Resource Include="packages\Unity.4.0.1\lib\portable-net45+wp80+win8+wpa81+MonoAndroid10+MonoTouch10\Microsoft.Practices.Unity.xml" />
+    <Content Include="packages\Unity.4.0.1\lib\win8\Microsoft.Practices.Unity.dll" />
+    <Content Include="packages\Unity.4.0.1\lib\win8\Microsoft.Practices.Unity.RegistrationByConvention.dll" />
+    <Resource Include="packages\Unity.4.0.1\lib\win8\Microsoft.Practices.Unity.RegistrationByConvention.XML" />
+    <Resource Include="packages\Unity.4.0.1\lib\win8\Microsoft.Practices.Unity.xml" />
+    <Content Include="packages\Unity.4.0.1\lib\wp80\Microsoft.Practices.Unity.dll" />
+    <Content Include="packages\Unity.4.0.1\lib\wp80\Microsoft.Practices.Unity.RegistrationByConvention.dll" />
+    <Resource Include="packages\Unity.4.0.1\lib\wp80\Microsoft.Practices.Unity.RegistrationByConvention.XML" />
+    <Resource Include="packages\Unity.4.0.1\lib\wp80\Microsoft.Practices.Unity.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Services\DbcServices\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
